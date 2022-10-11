@@ -2,22 +2,22 @@
 show:show&#13;
 var: [a-zA-Z]*&#13;
 numero: [0-1]+&#13;
-soma: \+&#13;
-sub: \-&#13;
-mult: \*&#13;
-div: "/"&#13;
-exp: "^"&#13;
-igual: "="&#13;
-abrePar: "("&#13;
-fechaPar: ")"&#13;
-fim: ";"</tokens><non_terminals>&lt;lista_comandos&gt;&#13;
+"+"&#13;
+"-"&#13;
+"*"&#13;
+"/"&#13;
+"^"&#13;
+"="&#13;
+"("&#13;
+")"&#13;
+";"</tokens><non_terminals>&lt;lista_comandos&gt;&#13;
 &lt;comando&gt;&#13;
 &lt;p1&gt;&#13;
 &lt;p2&gt;&#13;
 &lt;p3&gt;&#13;
 &lt;p4&gt;</non_terminals><grammar>&lt;lista_comandos&gt; ::= &lt;lista_comandos&gt;&lt;comando&gt; | &lt;comando&gt;;&#13;
-&lt;comando&gt; ::= var #10 igual &lt;p4&gt; fim #9 | show abrePar &lt;p4&gt; fechaPar fim #8;&#13;
-&lt;p4&gt; ::= &lt;p4&gt; soma &lt;p3&gt; #2 | &lt;p4&gt; sub &lt;p3&gt; #5 | &lt;p3&gt;;&#13;
-&lt;p3&gt; ::= &lt;p3&gt; mult &lt;p2&gt; #3 | &lt;p3&gt; div &lt;p2&gt; #6 | &lt;p2&gt;;&#13;
-&lt;p2&gt; ::= &lt;p2&gt; exp &lt;p1&gt; #7 | &lt;p1&gt;;&#13;
-&lt;p1&gt; ::= abrePar &lt;p4&gt; fechaPar | numero #1 | var #4;</grammar></data></gals_file>
+&lt;comando&gt; ::= var #10 "=" &lt;p4&gt; ";" #9 | show "(" &lt;p4&gt; ")" ";" #8;&#13;
+&lt;p4&gt; ::= &lt;p4&gt; "+" &lt;p3&gt; #2 | &lt;p4&gt; "-" &lt;p3&gt; #5 | &lt;p3&gt;;&#13;
+&lt;p3&gt; ::= &lt;p3&gt; "*" &lt;p2&gt; #3 | &lt;p3&gt; "/" &lt;p2&gt; #6 | &lt;p2&gt;;&#13;
+&lt;p2&gt; ::= &lt;p2&gt; "^" &lt;p1&gt; #7 | &lt;p1&gt;;&#13;
+&lt;p1&gt; ::= "(" &lt;p4&gt; ")" | numero #1 | var #4;</grammar></data></gals_file>

@@ -2,6 +2,8 @@
 //run: java -cp build/classes main/Main
 //arg1: "A = 100; B = 10; B = 111 + A / B; show(B);"
 //arg2: "A=(100+11*11)^11;B=A;show(B);"
+//arg3: "show(101*10);"
+//agr4: "a=11;b=10;show(a);"
 
 package main;
 

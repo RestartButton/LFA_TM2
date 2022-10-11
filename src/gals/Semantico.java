@@ -9,6 +9,7 @@ public class Semantico implements Constants
     Stack<Integer> stack = new Stack<Integer>();
     Map<String, Integer> vars = new HashMap<String, Integer>();
     String variavelAtual;
+    String variavelChamada;
     public void executeAction(int action, Token token)	throws SemanticError
     {
         Integer a, b;
@@ -29,6 +30,7 @@ public class Semantico implements Constants
               break;
             case 4: //Empilha variavel
               stack.push(vars.get(token.getLexeme()));
+              variavelChamada = token.getLexeme();
               break;
             case 5://subtração
               b = stack.pop();
@@ -47,10 +49,14 @@ public class Semantico implements Constants
               stack.push(A.intValue());
               break;
             case 8: //função show
-              System.out.print("Resultado: "+Integer.toBinaryString(vars.get(variavelAtual))+"\n");
+              System.out.print("Resultado: "+Integer.toBinaryString(vars.get(variavelChamada) == null ? stack.pop() : vars.get(variavelChamada))+"\n");
+              variavelAtual = null;
+              variavelChamada = null;
               break;            
             case 9: //salva variavel e valor
               vars.put(variavelAtual, stack.pop());
+              variavelAtual = null;
+              variavelChamada = null;
               break;
             case 10:    //variavel atual
               variavelAtual = token.getLexeme();

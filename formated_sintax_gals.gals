@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<gals_file>
+    <options_list>
+        <option>
+            <name>scanner.gen</name>
+            <value>true</value>
+        </option>
+        <option>
+            <name>parser.gen</name>
+            <value>true</value>
+        </option>
+        <option>
+            <name>scanner.sensitive</name>
+            <value>true</value>
+        </option>
+        <option>
+            <name>scanner.name</name>
+            <value>Lexico</value>
+        </option>
+        <option>
+            <name>parser.name</name>
+            <value>Sintatico</value>
+        </option>
+        <option>
+            <name>semantic.name</name>
+            <value>Semantico</value>
+        </option>
+        <option>
+            <name>package</name>
+            <value/>
+        </option>
+        <option>
+            <name>language</name>
+            <value>java</value>
+        </option>
+        <option>
+            <name>language</name>
+            <value>java</value>
+        </option>
+        <option>
+            <name>parser</name>
+            <value>SLR</value>
+        </option>
+        <option>
+            <name>table.scanner</name>
+            <value>full</value>
+        </option>
+    </options_list>
+    <data>
+        <definitions/>
+        <tokens>
+            :[\n\t\r\s]+&#13;
+            show:show&#13;
+            var: [a-zA-Z]*&#13;
+            numero: [0-1]+&#13;
+            "+"&#13;
+            "-"&#13;
+            "*"&#13;
+            "/"&#13;
+            "^"&#13;
+            "="&#13;
+            "("&#13;
+            ")"&#13;
+            ";"
+        </tokens>
+        <non_terminals>
+            &lt;lista_comandos&gt;&#13;
+            &lt;comando&gt;&#13;
+            &lt;p1&gt;&#13;
+            &lt;p2&gt;&#13;
+            &lt;p3&gt;&#13;
+            &lt;p4&gt;
+        </non_terminals>
+        <grammar>
+            &lt;lista_comandos&gt; ::= &lt;lista_comandos&gt;&lt;comando&gt; | &lt;comando&gt;;&#13;
+            &lt;comando&gt; ::= var #10 "=" &lt;p4&gt; ";" #9 | show "(" &lt;p4&gt; ")" ";" #8;&#13;
+            &lt;p4&gt; ::= &lt;p4&gt; "+" &lt;p3&gt; #2 | &lt;p4&gt; "-" &lt;p3&gt; #5 | &lt;p3&gt;;&#13;
+            &lt;p3&gt; ::= &lt;p3&gt; "*" &lt;p2&gt; #3 | &lt;p3&gt; "/" &lt;p2&gt; #6 | &lt;p2&gt;;&#13;
+            &lt;p2&gt; ::= &lt;p2&gt; "^" &lt;p1&gt; #7 | &lt;p1&gt;;&#13;
+            &lt;p1&gt; ::= "(" &lt;p4&gt; ")" | numero #1 | var #4;
+        </grammar>
+    </data>
+</gals_file>
